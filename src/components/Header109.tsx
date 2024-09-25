@@ -41,10 +41,10 @@ export const Header109 = (props: Header109Props) => {
 
   useEffect(() => {
     const updateRanges = () => {
-      if (window.matchMedia("(max-width: 768px)").matches) {
+      if (window.matchMedia("(max-width: 767px)").matches) {
         setWidthRange(["100%", "50%"]);
         setHeightRange(["100%", "25%"]);
-      } else if (window.matchMedia("(max-width: 1024px)").matches) {
+      } else if (window.matchMedia("(max-width: 991px)").matches) {
         setWidthRange(["100%", "25%"]);
         setHeightRange(["100%", "30%"]);
       } else {
@@ -62,22 +62,24 @@ export const Header109 = (props: Header109Props) => {
 
   const width = useTransform(scrollYProgress, [0, 0.7], widthRange);
   const height = useTransform(scrollYProgress, [0, 0.7], heightRange);
-  const translateY = useTransform(scrollYProgress, [0.5, 0.7], ["0vh", "38vh"]);
+
+  
+  const translateY = useTransform(scrollYProgress, [0.5, 0.7], ["0vh", "40vh"]);
 
   return (
-    <section id="relume" >
-      <div className="relative h-[300vh]">
-        <div className="sticky top-0 h-screen overflow-hidden">
+    <section id="relume " >
+      <div className="relative h-[300vh] ">
+        <div className="sticky top-0 h-screen ">
           <Dialog>
-            <div className="w-screen h-screen flex items-center justify-center ">
+            <div className="w-full h-screen flex items-center justify-center ">
               <motion.div
                 style={{ width, height, translateY }}
               >
-                <DialogTrigger className="w-full h-full">
+                <DialogTrigger className="w-full h-full ">
                   <div className="relative flex items-center justify-center w-full h-full">
                     <img src={image.src} className="w-full h-full object-cover" alt={image.alt} />
                     <Play className="absolute z-20 size-20 text-white" />
-                    <span className="absolute inset-0 z-10 bg-black/50" />
+                    <span className="absolute inset-0 z-10 bg-black/50 " />
                   </div>
                 </DialogTrigger>
               </motion.div>
@@ -106,10 +108,10 @@ export const Header109 = (props: Header109Props) => {
       </div>
       <div className="px-[5%] pt-16 pb-16 md:pt-24 md:pb-24 lg:pt-6 lg:pb-28">
       <div className="container">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center overflow-x-auto">
             <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
               <div className="w-full max-w-lg">
-                <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+                <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-[2.5rem] lg:text-10xl">
                   {heading}
                 </h1>
                 <p className="md:text-md">{description}</p>
